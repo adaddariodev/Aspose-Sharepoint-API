@@ -13,11 +13,12 @@ namespace Data
             _configuration = configuration;
         }
 
+        //entities
+        public DbSet<FileDatabaseModel> FileDetails { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
-        }
-
-        public DbSet<FileDetails> FileDetails { get; set; }
+        }       
     }
 }

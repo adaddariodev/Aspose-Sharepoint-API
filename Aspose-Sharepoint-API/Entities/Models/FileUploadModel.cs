@@ -4,7 +4,7 @@ namespace Entities.Models
 {
     public class FileUploadModel
     {
-        public IFormFile? FileDetails { get; set; }
+        public IFormFile? FileData { get; set; }
         public FileType FileType { get; set; }
     }
 }

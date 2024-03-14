@@ -18,7 +18,7 @@ namespace Services
         {
             try
             {
-                var fileDetails = new FileDetails()
+                var fileDB = new FileDatabaseModel()
                 {
                     ID = 0,
                     FileName = fileData.FileName,
@@ -28,10 +28,10 @@ namespace Services
                 using (var stream = new MemoryStream())
                 {
                     fileData.CopyTo(stream);
-                    fileDetails.FileData = stream.ToArray();
+                    fileDB.FileData = stream.ToArray();
                 }
 
-                var result = _context.FileDetails.Add(fileDetails);
+                var result = _context.FileDetails.Add(fileDB);
                 await _context.SaveChangesAsync();
             }
             catch (Exception)
@@ -40,26 +40,29 @@ namespace Services
             }
         }
 
-        public async Task PostMultiFileAsync(List<FileUploadModel> fileData)
+        public async Task PostMultiFileAsync(List<FileUploadModel> uploadedFilesList)
         {
             try
             {
-                foreach (FileUploadModel file in fileData)
+                foreach (FileUploadModel file in uploadedFilesList)
                 {
-                    var fileDetails = new FileDetails()
+                    if (file.FileData is null)
+                        throw new InvalidOperationException();
+
+                    var fileDB = new FileDatabaseModel()
                     {
                         ID = 0,
-                        FileName = file.FileDetails.FileName,
+                        FileName = file.FileData.FileName,
                         FileType = file.FileType
                     };
 
                     using (var stream = new MemoryStream())
                     {
-                        file.FileDetails.CopyTo(stream);
-                        fileDetails.FileData = stream.ToArray();
+                        file.FileData.CopyTo(stream);
+                        fileDB.FileData = stream.ToArray();
                     }
 
-                    var result = _context.FileDetails.Add(fileDetails);
+                    var result = _context.FileDetails.Add(fileDB);
                 }
                 await _context.SaveChangesAsync();
             }

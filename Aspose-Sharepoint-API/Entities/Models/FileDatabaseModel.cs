@@ -1,15 +1,17 @@
 ﻿using Entities.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models
 {
-    public class FileDetails
+    [Table("FileDetails")]
+    public class FileDatabaseModel
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string? FileName { get; set; }
-        public DateTime CreationDate { get; set; }
-        public long Size { get; set; } //byte
         public byte[]? FileData { get; set; }
         public FileType FileType { get; set; }
-
     }
 }

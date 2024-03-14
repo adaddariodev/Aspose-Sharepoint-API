@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Services;
 
 namespace Controllers
@@ -21,16 +22,16 @@ namespace Controllers
         /// <param name="file"></param>
         /// <returns></returns>
         [HttpPost("PostSingleFile")]
-        public async Task<ActionResult> PostSingleFile([FromForm] FileUploadModel fileDetails)
+        public async Task<ActionResult> PostSingleFile([FromForm] FileUploadModel uploadedFile)
         {
-            if (fileDetails == null)
+            if (uploadedFile == null || uploadedFile.FileData == null)
             {
                 return BadRequest();
             }
 
             try
             {
-                await _uploadService.PostFileAsync(fileDetails.FileDetails, fileDetails.FileType);
+                await _uploadService.PostFileAsync(uploadedFile.FileData, uploadedFile.FileType);
                 return Ok();
             }
             catch (Exception)
@@ -45,16 +46,16 @@ namespace Controllers
         /// <param name="file"></param>
         /// <returns></returns>
         [HttpPost("PostMultipleFile")]
-        public async Task<ActionResult> PostMultipleFile([FromForm] List<FileUploadModel> fileDetails)
+        public async Task<ActionResult> PostMultipleFile([FromForm] List<FileUploadModel> uploadedFilesList)
         {
-            if (fileDetails == null)
+            if (uploadedFilesList == null || uploadedFilesList.IsNullOrEmpty())
             {
                 return BadRequest();
             }
 
             try
             {
-                await _uploadService.PostMultiFileAsync(fileDetails);
+                await _uploadService.PostMultiFileAsync(uploadedFilesList);
                 return Ok();
             }
             catch (Exception)
