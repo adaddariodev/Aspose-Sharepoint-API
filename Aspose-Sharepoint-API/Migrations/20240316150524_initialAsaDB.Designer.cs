@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AsposeSharepointAPI.Migrations
 {
     [DbContext(typeof(AsaDbContext))]
-    [Migration("20240314154013_initialAsaDB")]
+    [Migration("20240316150524_initialAsaDB")]
     partial class initialAsaDB
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace AsposeSharepointAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Entities.Models.FileDetail", b =>
+            modelBuilder.Entity("Entities.Models.FileDatabaseModel", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -33,11 +33,9 @@ namespace AsposeSharepointAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<byte[]>("FileData")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("FileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FileType")

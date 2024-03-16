@@ -7,11 +7,11 @@ namespace Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilesController : ControllerBase
+    public class FileController : ControllerBase
     {
         private readonly IFileService _uploadService;
 
-        public FilesController(IFileService uploadService)
+        public FileController(IFileService uploadService)
         {
             _uploadService = uploadService;
         }
@@ -48,7 +48,7 @@ namespace Controllers
         [HttpPost("PostMultipleFile")]
         public async Task<ActionResult> PostMultipleFile([FromForm] List<FileUploadModel> uploadedFilesList)
         {
-            if (uploadedFilesList == null || uploadedFilesList.IsNullOrEmpty())
+            if (uploadedFilesList == null || uploadedFilesList.Count == 0)
             {
                 return BadRequest();
             }
