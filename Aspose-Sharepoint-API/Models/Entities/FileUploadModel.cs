@@ -1,6 +1,6 @@
-﻿using Entities.Enums;
+﻿using Models.Enums;
 
-namespace Entities.Models
+namespace Models.Entities
 {
     public class FileUploadModel
     {

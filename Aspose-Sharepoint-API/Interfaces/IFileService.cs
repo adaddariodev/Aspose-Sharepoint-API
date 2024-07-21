@@ -1,7 +1,7 @@
-﻿using Entities.Enums;
-using Entities.Models;
+﻿using Models.Entities;
+using Models.Enums;
 
-namespace Services
+namespace Interfaces
 {
     public interface IFileService
     {

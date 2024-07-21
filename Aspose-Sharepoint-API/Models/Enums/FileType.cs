@@ -1,4 +1,4 @@
-﻿namespace Entities.Enums
+﻿namespace Models.Enums
 {
     public enum FileType
     {

@@ -1,7 +1,8 @@
-﻿using Entities.Models;
-using Entities.Enums;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Data;
+using Interfaces;
+using Models.Entities;
+using Models.Enums;
 
 namespace Services
 {

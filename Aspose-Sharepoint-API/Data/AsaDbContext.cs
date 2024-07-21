@@ -1,6 +1,6 @@
-﻿using Entities.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Models.Entities;
 
 namespace Data
 {

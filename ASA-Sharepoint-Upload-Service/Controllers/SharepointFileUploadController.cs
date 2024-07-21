@@ -1,5 +1,5 @@
 ﻿using ASA_Sharepoint_Upload_Service.Interfaces;
-using Models.Entities;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASA_Sharepoint_Upload_Service.Controllers

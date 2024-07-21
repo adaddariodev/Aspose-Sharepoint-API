@@ -1,8 +1,8 @@
-﻿using Entities.Enums;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Models.Enums;
 
-namespace Entities.Models
+namespace Models.Entities
 {
     [Table("FileDetails")]
     public class FileDatabaseModel

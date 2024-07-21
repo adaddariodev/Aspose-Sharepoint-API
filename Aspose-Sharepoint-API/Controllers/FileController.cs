@@ -1,7 +1,6 @@
-﻿using Entities.Models;
+﻿using Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using Services;
+using Models.Entities;
 
 namespace Controllers
 {
