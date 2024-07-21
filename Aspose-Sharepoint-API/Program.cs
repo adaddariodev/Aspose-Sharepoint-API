@@ -1,3 +1,4 @@
+using ASA_Sharepoint_Upload_Service;
 using Data;
 using Services;
 
@@ -10,10 +11,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Services:
+
 //Database service
 builder.Services.AddDbContext<AsaDbContext>();
-//Database service
+//File upload and download service
 builder.Services.AddScoped<IFileService, FileService>();
+//Sharepoint file service
+builder.Services.AddScoped<ISharepointUploadService, SharepointUploadService>();
 
 var app = builder.Build();
 

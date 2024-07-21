@@ -25,18 +25,16 @@ namespace Controllers
         public async Task<ActionResult> PostSingleFile([FromForm] FileUploadModel uploadedFile)
         {
             if (uploadedFile == null || uploadedFile.FileData == null)
-            {
                 return BadRequest();
-            }
 
             try
             {
                 await _uploadService.PostFileAsync(uploadedFile.FileData, uploadedFile.FileType);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
         }
 
@@ -58,9 +56,9 @@ namespace Controllers
                 await _uploadService.PostMultiFileAsync(uploadedFilesList);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
         }
 
@@ -82,9 +80,9 @@ namespace Controllers
                 await _uploadService.DownloadFileById(id);
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
         }
     }
