@@ -1,8 +1,6 @@
-using ASA_Sharepoint_Upload_Service.Interfaces;
-using ASA_Sharepoint_Upload_Service.Services;
-using Data;
 using Interfaces;
 using Services;
+using Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

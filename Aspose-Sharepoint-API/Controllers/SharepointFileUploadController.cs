@@ -1,8 +1,8 @@
-﻿using ASA_Sharepoint_Upload_Service.Interfaces;
+﻿using Interfaces;
 using Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ASA_Sharepoint_Upload_Service.Controllers
+namespace Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

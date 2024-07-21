@@ -1,6 +1,6 @@
-﻿using ASA_Sharepoint_Upload_Service.Interfaces;
+﻿using Interfaces;
 
-namespace ASA_Sharepoint_Upload_Service.Services
+namespace Services
 {
     public class SharepointUploadService : ISharepointUploadService
     {
